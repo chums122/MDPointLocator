@@ -1,29 +1,22 @@
 # MDPointLocator 
-OpenAudio is free to download on spigot.
-* [Spigot Release Page](https://www.spigotmc.org/resources/openaudiomc-open-source-audio-client.30691/ "Spigot Plugin Page")
+MDPointLocator is free to download on spigot.
+* [Spigot Release Page](https://www.linkcomingsoon.com/ "Spigot Plugin Page")
 
 ## Useful Links
-* **Website** - <http://openaudiomc.net/>
-* **Discord Community** - <https://discordapp.com/invite/mfAgdhx>
-* **Javadocs** - <https://javadoc.openaudiomc.net/>
+* **Website** - <https://magicaldreams.us/>
+* **Discord Community** - <https://discord.gg/rrTk7ab>
 
 
 ## Requirements
 * Java 8
-* WorldGuard + WorldEdit (for region support)
 
-## Help OpenAudioMc!
-OpenAudioMc is a free spigot plugin and we'd like to keep it this way.  But to keep OpenAudioMc up and running, we need to host multiple servers (SocketIO, Web servers and more...) and this is expensive. This is why I've made a [donation page](http://donate.craftmend.com/), everything goes to the hosting for OpenAudioMc.
+## About MDPointLocator
+MDPointLocator is a free spigot plugin developed by MagicalDreamsUS to help Minecraft theme park servers outline to scale using Google Earth.
 
 ## Technology used
-* [Babel](https://babeljs.io/)
-* [WebPack](https://webpack.js.org/)
-* [NodeJS](https://nodejs.org/en/)
 * [Maven](https://maven.apache.org/)
-* [WebAudio](https://github.com/Mindgamesnl/WebAudio)
-* Love (there is a lot of time in this project)
 
 
 ## License
-OpenAudio is licensed under the Apache 2.0 License. Please
-see [`LICENSE`](https://github.com/Mindgamesnl/OpenAudioMc/blob/master/LICENSE) for more info.
+MDPointLocator is licensed under the GNU General Public License v3.0. Please
+see [`LICENSE`](https://github.com/chums122/MDPointLocator/blob/main/LICENSE) for more info.
