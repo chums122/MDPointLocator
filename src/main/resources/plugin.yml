@@ -1,0 +1,35 @@
+name: MDPointLocator
+version: ${project.version}
+main: us.magicaldreams.mdpointlocator.MDPointLocator
+authors: [chums122, Kev_Green, Rei_Arch]
+description: MagicalDreams.US PointLocator Plugin
+website: https://magicaldreams.us/
+commands:
+  pointsave:
+    description: The Command to save a Pointlocator starting point.
+    usage: /pointsave <x> <z> <name>
+    permission: md.point
+  pointdel:
+    description: The Command to delete a Pointlocator starting point.
+    usage: /pointdel <name>
+    permission: md.point
+  pointlist:
+    description: The Command to list Pointlocator starting points.
+    usage: /pointlist
+    permission: md.point
+  pointinfo:
+    description: The Command to view information of a PointLocator starting point.
+    usage: /pointinfo <name>
+    permission: md.point
+  point:
+    description: The Command plot a 1-to-1 point using PointLocator.
+    usage: /point <name> <length> <heading>
+    permission: md.point
+  point15:
+    description: The Command plot a 1-and-a-half-to-1 point using PointLocator.
+    usage: /point15 <name> <length> <heading>
+    permission: md.point
+  point2:
+    description: The Command plot a 2-to-1 point using PointLocator.
+    usage: /point2 <name> <length> <heading>
+    permission: md.point
