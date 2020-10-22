@@ -14,12 +14,19 @@ MDPointLocator is a free spigot plugin developed by MagicalDreamsUS to help Mine
 
 ## Commands
 * **/point** - The command plot a 1:1 point.
+    * **usage** - /point <name> <length> <heading>
 * **/point15** - The command plot a 1.5:1 point.
+    * **usage** - /point15 <name> <length> <heading>
 * **/point2** - The command plot a 2:1 point.
+    * **usage** - /point2 <name> <length> <heading>
 * **/pointsave** - The command to save a starting point.
+    * **usage** - /pointsave <x> <z> <name>
 * **/pointdel** - The command to delete a starting point.
+    * **usage** - /pointdel <name>
 * **/pointlist** - The command to list starting points.
+    * **usage** - /pointlist
 * **/pointinfo** - The command to view info about a specific starting point.
+    * **usage** - /pointinfo <name>
 
 ## Permissions
 * md.point
