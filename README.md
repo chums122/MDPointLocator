@@ -1,6 +1,6 @@
 # MDPointLocator 
 MDPointLocator is free to download on spigot.
-* [Spigot Release Page](https://www.linkcomingsoon.com/ "Spigot Plugin Page")
+* [Spigot Release Page](https://www.spigotmc.org/resources/mdpointlocator.85065/ "Spigot Plugin Page")
 
 ## Useful Links
 * **Website** - <https://magicaldreams.us/>
