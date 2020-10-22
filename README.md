@@ -21,6 +21,9 @@ MDPointLocator is a free spigot plugin developed by MagicalDreamsUS to help Mine
 * **/pointlist** - The command to list starting points.
 * **/pointinfo** - The command to view info about a specific starting point.
 
+## Permissions
+* md.point
+
 ## License
 MDPointLocator is licensed under the GNU General Public License v3.0. Please
 see [`LICENSE`](https://github.com/chums122/MDPointLocator/blob/main/LICENSE) for more info.
