@@ -19,6 +19,7 @@ public final class MDPointLocator extends JavaPlugin {
         this.getCommand("pointdel").setExecutor(new PointCommand());
         this.getCommand("pointlist").setExecutor(new PointCommand());
         this.getCommand("pointinfo").setExecutor(new PointCommand());
+        System.out.println("MDPointLocator > Plugin loaded successfully");
     }
 
 }

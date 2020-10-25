@@ -13,7 +13,6 @@ public class PointCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
 
-        String staffPrefix = "&cCM &8» &a";
 
         // Checks permissions
         Player p = ((Player) sender).getPlayer();
@@ -24,11 +23,11 @@ public class PointCommand implements CommandExecutor {
 
                 // If arguments are missing
                 if (isNullArgument(args, 0) || isNullArgument(args, 1) || isNullArgument(args, 2)) {
-                    p.sendMessage(ChatColor.translateAlternateColorCodes('&', staffPrefix + "&aPointLocator &8» &eMissing arguments! Please use /point <Name> <Length> <Heading>"));
+                    p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&aPointLocator &8» &eMissing arguments! Please use /point <Name> <Length> <Heading>"));
                     return true;
                 } else if(!isDouble(args[1]) || !isDouble(args[2])){
                     // If length and heading are not integers/double
-                    p.sendMessage(ChatColor.translateAlternateColorCodes('&', staffPrefix + "&aPointLocator &8» &eLength and Heading must be numbers! Please use /point <Name> <Length> <Heading>"));
+                    p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&aPointLocator &8» &eLength and Heading must be numbers! Please use /point <Name> <Length> <Heading>"));
                     return true;
                 } else {
                     // If successful
@@ -46,15 +45,15 @@ public class PointCommand implements CommandExecutor {
 
                         x = x + xchange;
                         z = z - zchange;
-                        Location loc = new Location(p.getWorld(),x,p.getLocation().getY(),z);
+                        Location loc = new Location(p.getWorld(),x,p.getLocation().getY(),z,p.getLocation().getYaw(),p.getLocation().getPitch());
 
-                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', staffPrefix + "&aPointLocator &8» &bTeleported to &aX:" + x + " Y:" + p.getLocation().getBlockY() + " Z:" + z));
+                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&aPointLocator &8» &bTeleported to &aX:" + x + " Y:" + p.getLocation().getBlockY() + " Z:" + z));
                         loc.getBlock().setType(Material.GLASS);
                         p.teleport(loc);
 
                         return true;
                     } else {
-                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', staffPrefix + "&aPointLocator &8» &eStart point &7" + args[0] + " &edoes not exist!"));
+                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&aPointLocator &8» &eStart point &7" + args[0] + " &edoes not exist!"));
                     }
                 }
                 return true;
@@ -65,11 +64,11 @@ public class PointCommand implements CommandExecutor {
 
                 // If arguments are missing
                 if (isNullArgument(args, 0) || isNullArgument(args, 1) || isNullArgument(args, 2)) {
-                    p.sendMessage(ChatColor.translateAlternateColorCodes('&', staffPrefix + "&aPointLocator &8» &eMissing arguments! Please use /point <Name> <Length> <Heading>"));
+                    p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&aPointLocator &8» &eMissing arguments! Please use /point <Name> <Length> <Heading>"));
                     return true;
                 } else if(!isDouble(args[1]) || !isDouble(args[2])){
                     // If length and heading are not integers/double
-                    p.sendMessage(ChatColor.translateAlternateColorCodes('&', staffPrefix + "&aPointLocator &8» &eLength and Heading must be numbers! Please use /point <Name> <Length> <Heading>"));
+                    p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&aPointLocator &8» &eLength and Heading must be numbers! Please use /point <Name> <Length> <Heading>"));
                     return true;
                 } else {
                     // If successful
@@ -87,16 +86,16 @@ public class PointCommand implements CommandExecutor {
 
                         x = x + xchange;
                         z = z - zchange;
-                        Location loc = new Location(p.getWorld(),x,p.getLocation().getY(),z);
+                        Location loc = new Location(p.getWorld(),x,p.getLocation().getY(),z,p.getLocation().getYaw(),p.getLocation().getPitch());
 
-                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', staffPrefix + "&aPointLocator &8» &bTeleported to &aX:" + x + " Y:" + p.getLocation().getBlockY() + " Z:" + z));
+                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&aPointLocator &8» &bTeleported to &aX:" + x + " Y:" + p.getLocation().getBlockY() + " Z:" + z));
 
                         loc.getBlock().setType(Material.GLASS);
                         p.teleport(loc);
 
                         return true;
                     } else {
-                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', staffPrefix + "&aPointLocator &8» &eStart point &7" + args[0] + " &edoes not exist!"));
+                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&aPointLocator &8» &eStart point &7" + args[0] + " &edoes not exist!"));
                     }
                 }
                 return true;
@@ -107,11 +106,11 @@ public class PointCommand implements CommandExecutor {
 
                 // If arguments are missing
                 if (isNullArgument(args, 0) || isNullArgument(args, 1) || isNullArgument(args, 2)) {
-                    p.sendMessage(ChatColor.translateAlternateColorCodes('&', staffPrefix + "&aPointLocator &8» &eMissing arguments! Please use /point <Name> <Length> <Heading>"));
+                    p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&aPointLocator &8» &eMissing arguments! Please use /point <Name> <Length> <Heading>"));
                     return true;
                 } else if(!isDouble(args[1]) || !isDouble(args[2])){
                     // If length and heading are not integers/double
-                    p.sendMessage(ChatColor.translateAlternateColorCodes('&', staffPrefix + "&aPointLocator &8» &eLength and Heading must be numbers! Please use /point <Name> <Length> <Heading>"));
+                    p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&aPointLocator &8» &eLength and Heading must be numbers! Please use /point <Name> <Length> <Heading>"));
                     return true;
                 } else {
                     // If successful
@@ -129,16 +128,16 @@ public class PointCommand implements CommandExecutor {
 
                         x = x + xchange;
                         z = z - zchange;
-                        Location loc = new Location(p.getWorld(),x,p.getLocation().getY(),z);
+                        Location loc = new Location(p.getWorld(),x,p.getLocation().getY(),z,p.getLocation().getYaw(),p.getLocation().getPitch());
 
-                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', staffPrefix + "&aPointLocator &8» &bTeleported to &aX:" + x + " Y:" + p.getLocation().getBlockY() + " Z:" + z));
+                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&aPointLocator &8» &bTeleported to &aX:" + x + " Y:" + p.getLocation().getBlockY() + " Z:" + z));
 
                         loc.getBlock().setType(Material.GLASS);
                         p.teleport(loc);
 
                         return true;
                     } else {
-                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', staffPrefix + "&aPointLocator &8» &eStart point &7" + args[0] + " &edoes not exist!"));
+                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&aPointLocator &8» &eStart point &7" + args[0] + " &edoes not exist!"));
                     }
                 }
                 return true;
@@ -147,14 +146,14 @@ public class PointCommand implements CommandExecutor {
             // Command: /pointdel <name>
             if (label.equalsIgnoreCase("pointdel")) {
                 if (isNullArgument(args, 0)) {
-                    p.sendMessage(ChatColor.translateAlternateColorCodes('&', staffPrefix + "&aPointLocator &8» &eMissing arguments! Please use /pointdel <Name>"));
+                    p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&aPointLocator &8» &eMissing arguments! Please use /pointdel <Name>"));
                 } else {
                     if (PointSave.get().contains(args[0])) {
                         PointSave.get().set(args[0], null);
                         PointSave.save();
-                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', staffPrefix + "&aPointLocator &8» &bStart point &a" + args[0] + " &bhas been deleted!"));
+                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&aPointLocator &8» &bStart point &a" + args[0] + " &bhas been deleted!"));
                     } else {
-                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', staffPrefix + "&aPointLocator &8» &eStart point &7" + args[0] + " &edoes not exist!"));
+                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&aPointLocator &8» &eStart point &7" + args[0] + " &edoes not exist!"));
                     }
                 }
                 return true;
@@ -163,15 +162,15 @@ public class PointCommand implements CommandExecutor {
             // Command: /pointinfo <name>
             if (label.equalsIgnoreCase("pointinfo")) {
                 if (isNullArgument(args, 0)) {
-                    p.sendMessage(ChatColor.translateAlternateColorCodes('&', staffPrefix + "&aPointLocator &8» &eMissing arguments! Please use /pointinfo <Name>"));
+                    p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&aPointLocator &8» &eMissing arguments! Please use /pointinfo <Name>"));
                     return true;
                 } else {
                     if(PointSave.get().contains(args[0])) {
                         List<String> coords = PointSave.get().getStringList(args[0]);
-                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', staffPrefix + "&aPointLocator &8» &eStart point &7= &eX:" + coords.get(0) + " Z:" + coords.get(1)));
+                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&aPointLocator &8» &eStart point &7= &eX:" + coords.get(0) + " Z:" + coords.get(1)));
                         return true;
                     } else {
-                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', staffPrefix + "&aPointLocator &8» &eStart point &7" + args[0] + " &edoes not exist!"));
+                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&aPointLocator &8» &eStart point &7" + args[0] + " &edoes not exist!"));
                     }
                 }
                 return true;
@@ -179,7 +178,7 @@ public class PointCommand implements CommandExecutor {
 
             // Command: /pointlist
             if (label.equalsIgnoreCase("pointlist")) {
-                p.sendMessage(ChatColor.translateAlternateColorCodes('&', staffPrefix + "&aPointLocator &8» &bCurrent start points include: &a" + PointSave.get().getKeys(false)));
+                p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&aPointLocator &8» &bCurrent start points include: &a" + PointSave.get().getKeys(false)));
                 return true;
             }
 
@@ -190,22 +189,22 @@ public class PointCommand implements CommandExecutor {
 
                 // If arguments are missing
                 if (isNullArgument(args, 0) || isNullArgument(args, 1) || isNullArgument(args, 2)) {
-                    p.sendMessage(ChatColor.translateAlternateColorCodes('&', staffPrefix + "&aPointLocator &8» &eMissing arguments! Please use /pointsave <X> <Z> <Name>"));
+                    p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&aPointLocator &8» &eMissing arguments! Please use /pointsave <X> <Z> <Name>"));
                     return true;
                 } else if (!isInteger(args[0]) || !isInteger(args[1])) {
                     // If x and y are not integers
-                    p.sendMessage(ChatColor.translateAlternateColorCodes('&', staffPrefix + "&aPointLocator &8» &eX and Z must be numbers!"));
+                    p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&aPointLocator &8» &eX and Z must be numbers!"));
                     return true;
                 } else {
                     // If successful
                     if(!PointSave.get().contains(args[2])) {
-                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', staffPrefix + "&aPointLocator &8» &bStart point &a" + args[2] + " &bhas been saved!"));
+                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&aPointLocator &8» &bStart point &a" + args[2] + " &bhas been saved!"));
                         List<String> coords = Arrays.asList(args[0], args[1]);
                         PointSave.get().set(args[2], coords);
                         PointSave.save();
                         return true;
                     } else {
-                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', staffPrefix + "&aPointLocator &8» &eStart point already exists!"));
+                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&aPointLocator &8» &eStart point already exists!"));
                     }
                 }
                 return true;

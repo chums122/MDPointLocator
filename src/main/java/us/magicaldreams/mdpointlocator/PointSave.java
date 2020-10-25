@@ -36,7 +36,7 @@ public class PointSave {
         try {
             customFile.save(file);
         } catch (IOException e) {
-            System.out.println("PixieDustGenerator > Error saving point locator config file...");
+            System.out.println("MDPointLocator > Error saving point locator config file...");
         }
     }
 
