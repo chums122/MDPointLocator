@@ -35,10 +35,14 @@ commands:
     usage: /point2 <name> <length> <heading>
     permission: md.point
   pointsety:
-    description: The Command plot a 2-to-1 point.
+    description: The Command set the y position for the points
     usage: /pointsety <y>
     permission: md.point
   pointsetmaterial:
-    description: The Command plot a 2-to-1 point.
+    description: The Command set the material type for points
     usage: /pointsetmaterial <material>
+    permission: md.point
+  pointsconnect:
+    description: The Command to make a line between two points
+    usage: /pointsconnect
     permission: md.point

@@ -3,6 +3,7 @@ package us.magicaldreams.mdpointlocator;
 import java.util.HashMap;
 import java.util.UUID;
 
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.plugin.java.JavaPlugin;
 import us.magicaldreams.mdpointlocator.PointCommand;
@@ -36,6 +37,7 @@ public final class MDPointLocator extends JavaPlugin {
 		this.getCommand("pointinfo").setExecutor(new PointCommand());
 		this.getCommand("pointsety").setExecutor(new PointCommand());
 		this.getCommand("pointsetmaterial").setExecutor(new PointCommand());
+		this.getCommand("pointsconnect").setExecutor(new PointCommand());
 		System.out.println("MDPointLocator > Plugin loaded successfully");
 	}
 	
@@ -44,7 +46,7 @@ public final class MDPointLocator extends JavaPlugin {
 		playerData.clear();
 	}
 
-	public void addToHashMap(UUID playerID, Material block, int y) {
+	public void addToHashMap(UUID playerID, Material block, int y, Location pos) {
 		
 		PointData data;
 
@@ -58,8 +60,12 @@ public final class MDPointLocator extends JavaPlugin {
 					data.setBlock(block);					
 				}
 
-				if(y != 0) {
+				if(y != -1) {
 					data.setY(y);
+				}
+				
+				if(pos != null) {
+					data.savePosition(pos);
 				}
 				
 				playerData.replace(playerID, data);
@@ -72,8 +78,12 @@ public final class MDPointLocator extends JavaPlugin {
 					data.setBlock(block);					
 				}
 
-				if(y != 0) {
+				if(y != -1) {
 					data.setY(y);
+				}
+				
+				if(pos != null) {
+					data.savePosition(pos);
 				}
 				
 				playerData.put(playerID, data);
