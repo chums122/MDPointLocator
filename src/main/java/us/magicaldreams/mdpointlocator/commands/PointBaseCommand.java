@@ -21,16 +21,9 @@ public class PointBaseCommand implements CommandExecutor {
 
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
-        // Check if args[0] null
-        if (args[0] == null) {
-            // Run help sub command if no sub command
-            commands.get("help").onCommand(sender, command, args);
-            return true;
-        }
-
-        // Check if the sub command exists
-        if (!commands.containsKey(args[0].toLowerCase())) {
-            // Run help sub command if incorrect or unknown sub command
+        // Check if args less than 1 or if sub command exists
+        if ((args.length < 1) || (!commands.containsKey(args[0].toLowerCase()))) {
+            // Run help sub command if no, incorrect, or unknown sub command
             commands.get("help").onCommand(sender, command, args);
             return true;
         }
