@@ -78,10 +78,13 @@ public class HelpSubCommand implements MDSubCommand {
     }
 
     private void sendHelpPageFooter(CommandSender sender, int pageNo, int pages) {
-        TextComponent prefix = new TextComponent("------------");
-        prefix.setColor(ChatColor.GRAY);
-        prefix.setStrikethrough(true);
 
+        // Decoration
+        TextComponent decoration = new TextComponent("------------");
+        decoration.setColor(ChatColor.GRAY);
+        decoration.setStrikethrough(true);
+
+        // Previous page
         TextComponent prevPage = new TextComponent("[");
         prevPage.setBold(true);
         TextComponent prevPage1 = new TextComponent("<");
@@ -95,6 +98,7 @@ public class HelpSubCommand implements MDSubCommand {
         prevPage.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/point help " + (pageNo - 1)));
         prevPage.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("Previous Page").create()));
 
+        // Display Page # of #
         TextComponent pageNoMsg = new TextComponent("Page");
         TextComponent pageNoMsg1 = new TextComponent(" " + pageNo + " ");
         pageNoMsg1.setBold(true);
@@ -105,6 +109,7 @@ public class HelpSubCommand implements MDSubCommand {
         pageNoMsg.addExtra(pageNoMsg2);
         pageNoMsg.addExtra(pageNoMsg3);
 
+        // Next page
         TextComponent nextPage = new TextComponent("[");
         nextPage.setBold(true);
         TextComponent nextPage1 = new TextComponent(">");
@@ -118,11 +123,7 @@ public class HelpSubCommand implements MDSubCommand {
         nextPage.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/point help " + (pageNo + 1)));
         nextPage.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("Next Page").create()));
 
-        TextComponent suffix = new TextComponent("------------");
-        suffix.setColor(ChatColor.GRAY);
-        suffix.setStrikethrough(true);
-
-        sender.spigot().sendMessage(prefix, prevPage, pageNoMsg, nextPage, suffix);
+        sender.spigot().sendMessage(decoration, prevPage, pageNoMsg, nextPage, decoration);
     }
 
     public String getPermission() {
