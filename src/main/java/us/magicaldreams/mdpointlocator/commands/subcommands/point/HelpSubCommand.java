@@ -26,10 +26,13 @@ public class HelpSubCommand implements MDSubCommand {
         Map<String, MDSubCommand> commands = PointBaseCommand.getCommands();
         ArrayList<String> helpEntries = new ArrayList<>();
 
+        // Send help header
         sendHelpPageHeader(sender);
+
+        // Manually add entry for /point base command
         helpEntries.add(CommonUtil.getHelpEntry("/point", "The base command for point locator."));
 
-        // Loop through registered sub commands -- add help entry to helpEntries list
+        // Loop through registered sub commands -- add help entry to helpEntries list if player has permission for the command
         for (Map.Entry<String, MDSubCommand> entry : commands.entrySet()) {
             if (sender.hasPermission(entry.getValue().getPermission())) {
                 helpEntries.add(CommonUtil.getHelpEntry(entry.getValue().getUsage(), entry.getValue().getDescription()));
@@ -40,18 +43,20 @@ public class HelpSubCommand implements MDSubCommand {
         int maxEntriesPerPage = 5;
         float pagesRaw = helpEntriesSize / maxEntriesPerPage;
         int pages = (int) Math.ceil(pagesRaw);
-
         int pageNo = 1;
 
+        // Check if page number specified when running /point help
         if (args.length > 1) {
             try {
                 pageNo = Integer.parseInt(args[1]);
             } catch (NumberFormatException ignored) {
-                //
+                // args[1] isn't a int
             }
         }
 
+        // If requested page greater than max pages
         if (pageNo > pages) pageNo = pages;
+        // If requested page less than 1
         if (pageNo < 1) pageNo = 1;
 
         int pageEntries = pageNo * maxEntriesPerPage;
@@ -65,6 +70,7 @@ public class HelpSubCommand implements MDSubCommand {
             }
         }
 
+        // Send help footer
         sendHelpPageFooter(sender, pageNo, pages);
 
     }
