@@ -10,14 +10,23 @@ import us.magicaldreams.mdpointlocator.MDPointLocator;
  **/
 
 public class CommonUtil {
+    static PluginDescriptionFile pluginDescriptionFile = MDPointLocator.getInstance().getDescription();
     static String brandedMessagePrefix = ChatColor.GREEN + "PointLocator " + ChatColor.GRAY + "» ";
     static String brandedMessagePrefixMD = ChatColor.GREEN + "MDPointLocator " + ChatColor.GRAY + "» ";
     static String permissionNode = "md.point";
     static String noPermissionMsg = ChatColor.RED + "Sorry, you don't have permission for that command!";
 
     public static String getPluginVersion() {
-        PluginDescriptionFile pluginDescriptionFile = MDPointLocator.getInstance().getDescription();
         return pluginDescriptionFile.getVersion();
+    }
+
+    public static String getPluginAuthors() {
+        return pluginDescriptionFile.getAuthors().toString().substring(1, pluginDescriptionFile.getAuthors().toString().length() - 1);
+    }
+
+    public static String getPluginAboutMessage() {
+        return getBrandedConsoleMsg(ChatColor.RED + "No sub command provided! /point help for a list of commands. \n" +
+                getBrandedConsoleMsg("Version " + getPluginVersion() + " by " + getPluginAuthors()));
     }
 
     public static String getBrandedMsgPrefix(String input) {
@@ -42,6 +51,36 @@ public class CommonUtil {
 
     public static String getPermissionNode(String permission) {
         return permissionNode + "." + permission;
+    }
+
+    // Function checks if input is string
+    public static boolean isNullArgument(String[] args, int index) {
+        try {
+            String temp = args[index];
+            return false;
+        } catch (IndexOutOfBoundsException ex) {
+            return true;
+        }
+    }
+
+    // Function checks if input is integer
+    public static boolean isInteger(String s) {
+        try {
+            Integer.parseInt(s);
+            return true;
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+    }
+
+    // Function checks if input is double
+    public static boolean isDouble(String s) {
+        try {
+            Double.parseDouble(s);
+            return true;
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
     }
 
 }
