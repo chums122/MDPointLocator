@@ -8,4 +8,3 @@ commands:
   point:
     description: The base point locator command. Will display help for commands the player has access to if unknown or no subcommand is provided.
     usage: /point [subcommand]
-    permission: md.point

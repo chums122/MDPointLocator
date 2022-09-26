@@ -5,13 +5,20 @@ import org.bukkit.plugin.java.JavaPlugin;
 import us.magicaldreams.mdpointlocator.commands.PointBaseCommand;
 import us.magicaldreams.mdpointlocator.commands.subcommands.point.HelpSubCommand;
 import us.magicaldreams.mdpointlocator.commands.subcommands.point.PointCreateSubCommand;
+import us.magicaldreams.mdpointlocator.commands.subcommands.point.PointPlotSubCommand;
+import us.magicaldreams.mdpointlocator.util.CommonUtil;
 
 import java.util.logging.Level;
 
 public final class MDPointLocator extends JavaPlugin {
 
+    private static MDPointLocator instance;
+
     @Override
     public void onEnable() {
+
+        // Set main instance
+        instance = this;
 
         // Config setup
         PointConfig.init();
@@ -19,14 +26,26 @@ public final class MDPointLocator extends JavaPlugin {
         // Command setup
         registerCommands();
 
-        Bukkit.getLogger().log(Level.INFO, "MDPointLocator > Plugin loaded successfully");
+        // Log startup message
+        getLogger().log(Level.INFO, CommonUtil.getBrandedConsoleMsg("Enabled v" + CommonUtil.getPluginVersion()));
     }
 
-    public void registerCommands() {
+    @Override
+    public void onDisable() {
+        // Save config
+        PointConfig.saveConfig();
+    }
+
+    private void registerCommands() {
         PointBaseCommand pointBaseCommand = new PointBaseCommand();
         getCommand("point").setExecutor(pointBaseCommand);
         pointBaseCommand.registerCommand("help", new HelpSubCommand());
         pointBaseCommand.registerCommand("create", new PointCreateSubCommand());
+        pointBaseCommand.registerCommand("plot", new PointPlotSubCommand());
+    }
+
+    public static MDPointLocator getInstance() {
+        return instance;
     }
 
 }

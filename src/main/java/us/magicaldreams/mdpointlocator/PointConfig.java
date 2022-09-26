@@ -4,9 +4,11 @@ import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 
+import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.configuration.file.FileConfiguration;
+import us.magicaldreams.mdpointlocator.util.CommonUtil;
 
 public class PointConfig {
 
@@ -29,7 +31,8 @@ public class PointConfig {
             try {
                 file.createNewFile();
             } catch (IOException e) {
-                //
+                e.printStackTrace();
+                MDPointLocator.getInstance().getLogger().log(Level.SEVERE, CommonUtil.getBrandedConsoleMsg(ChatColor.RED + "Error creating point locator config file..."));
             }
         }
         customFile = YamlConfiguration.loadConfiguration(file);
@@ -44,7 +47,8 @@ public class PointConfig {
         try {
             customFile.save(file);
         } catch (IOException e) {
-            Bukkit.getLogger().log(Level.SEVERE, "MDPointLocator > Error saving point locator config file...");
+            e.printStackTrace();
+            MDPointLocator.getInstance().getLogger().log(Level.SEVERE, CommonUtil.getBrandedConsoleMsg(ChatColor.RED + "Error saving point locator config file..."));
         }
     }
 
