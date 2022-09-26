@@ -47,11 +47,7 @@ public class HelpSubCommand implements MDSubCommand {
 
         // Check if page number specified when running /point help
         if (args.length > 1) {
-            try {
-                pageNo = Integer.parseInt(args[1]);
-            } catch (NumberFormatException ignored) {
-                // args[1] isn't a int
-            }
+            if (CommonUtil.isInteger(args[1])) pageNo = Integer.parseInt(args[1]);
         }
 
         // If requested page greater than max pages
@@ -72,7 +68,6 @@ public class HelpSubCommand implements MDSubCommand {
 
         // Send help footer
         sendHelpPageFooter(sender, pageNo, pages);
-
     }
 
     private void sendHelpPageHeader(CommandSender sender) {
