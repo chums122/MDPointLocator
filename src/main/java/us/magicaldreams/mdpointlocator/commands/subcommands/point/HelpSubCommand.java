@@ -24,20 +24,21 @@ public class HelpSubCommand implements MDSubCommand {
     @Override
     public void onCommand(CommandSender sender, Command command, String[] args) {
         Map<String, MDSubCommand> commands = PointBaseCommand.getCommands();
-        ArrayList<String> processedEntries = new ArrayList<>();
+        ArrayList<String> helpEntries = new ArrayList<>();
 
         sendHelpPageHeader(sender);
-        processedEntries.add(CommonUtil.getHelpEntry("/point", "The base command for point locator."));
+        helpEntries.add(CommonUtil.getHelpEntry("/point", "The base command for point locator."));
 
+        // Loop through registered sub commands -- add help entry to helpEntries list
         for (Map.Entry<String, MDSubCommand> entry : commands.entrySet()) {
             if (sender.hasPermission(entry.getValue().getPermission())) {
-                processedEntries.add(CommonUtil.getHelpEntry(entry.getValue().getUsage(), entry.getValue().getDescription()));
+                helpEntries.add(CommonUtil.getHelpEntry(entry.getValue().getUsage(), entry.getValue().getDescription()));
             }
         }
 
-        float processedEntriesNo = processedEntries.size();
-        int maxEntriesPerPage = 3;
-        float pagesRaw = processedEntriesNo / maxEntriesPerPage;
+        float helpEntriesSize = helpEntries.size();
+        int maxEntriesPerPage = 5;
+        float pagesRaw = helpEntriesSize / maxEntriesPerPage;
         int pages = (int) Math.ceil(pagesRaw);
 
         int pageNo = 1;
@@ -55,9 +56,10 @@ public class HelpSubCommand implements MDSubCommand {
 
         int pageEntries = pageNo * maxEntriesPerPage;
 
+        // Loop through current page entries starting at current page number * max number of pages
         for (int ii = pageEntries + maxEntriesPerPage; ii > pageEntries; pageEntries++) {
             try {
-                sender.sendMessage(processedEntries.get(pageEntries - maxEntriesPerPage));
+                sender.sendMessage(helpEntries.get(pageEntries - maxEntriesPerPage));
             } catch (IndexOutOfBoundsException ignored) {
                 break;
             }
@@ -123,6 +125,7 @@ public class HelpSubCommand implements MDSubCommand {
         nextPage.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/point help " + (pageNo + 1)));
         nextPage.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("Next Page").create()));
 
+        // Send the message
         sender.spigot().sendMessage(decoration, prevPage, pageNoMsg, nextPage, decoration);
     }
 
