@@ -23,6 +23,12 @@ public class PointBaseCommand implements CommandExecutor {
 
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
+        // Check if args length less than 1
+        if (args.length < 1) {
+            sender.sendMessage(CommonUtil.getPluginAboutMessage());
+            return true;
+        }
+
         // Check if sender instanceof player
         if (!(sender instanceof Player)) {
             sender.sendMessage(CommonUtil.getBrandedConsoleMsg(ChatColor.RED + "Sorry, only players may run point locator commands!"));
@@ -35,8 +41,8 @@ public class PointBaseCommand implements CommandExecutor {
             return true;
         }
 
-        // Check if args less than 1 or if sub command doesn't exist
-        if ((args.length < 1) || (!commands.containsKey(args[0].toLowerCase()))) {
+        // Check if sub command doesn't exist
+        if (!commands.containsKey(args[0].toLowerCase())) {
             // Run help sub command if no, incorrect, or unknown sub command
             commands.get("help").onCommand(sender, command, args);
             return true;
