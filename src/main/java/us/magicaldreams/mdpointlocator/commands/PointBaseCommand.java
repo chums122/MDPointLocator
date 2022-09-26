@@ -35,7 +35,7 @@ public class PointBaseCommand implements CommandExecutor {
             return true;
         }
 
-        // Check if args less than 1 or if sub command exists
+        // Check if args less than 1 or if sub command doesn't exist
         if ((args.length < 1) || (!commands.containsKey(args[0].toLowerCase()))) {
             // Run help sub command if no, incorrect, or unknown sub command
             commands.get("help").onCommand(sender, command, args);
