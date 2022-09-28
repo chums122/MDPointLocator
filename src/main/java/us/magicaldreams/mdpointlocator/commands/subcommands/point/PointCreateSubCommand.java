@@ -4,14 +4,12 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import us.magicaldreams.mdpointlocator.PointConfig;
+import us.magicaldreams.mdpointlocator.util.PointConfig;
 import us.magicaldreams.mdpointlocator.command.MDSubCommand;
-import us.magicaldreams.mdpointlocator.commands.PointBaseCommand;
 import us.magicaldreams.mdpointlocator.util.CommonUtil;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by Trevor Chumbley
@@ -50,7 +48,7 @@ public class PointCreateSubCommand implements MDSubCommand {
             PointConfig.getConfig().set(args[2], coords);
             PointConfig.saveConfig();
         } else {
-            player.sendMessage(CommonUtil.getBrandedMsgPrefix(ChatColor.RED + "Start point already exists!"));
+            player.sendMessage(CommonUtil.getBrandedMsgPrefix(ChatColor.RED + "That start point already exists!"));
             player.sendMessage(CommonUtil.getPointListHelpLine());
         }
     }

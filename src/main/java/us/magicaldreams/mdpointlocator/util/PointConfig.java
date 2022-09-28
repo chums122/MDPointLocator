@@ -1,4 +1,4 @@
-package us.magicaldreams.mdpointlocator;
+package us.magicaldreams.mdpointlocator.util;
 
 import java.io.File;
 import java.io.IOException;
@@ -8,6 +8,7 @@ import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.configuration.file.FileConfiguration;
+import us.magicaldreams.mdpointlocator.MDPointLocator;
 import us.magicaldreams.mdpointlocator.util.CommonUtil;
 
 public class PointConfig {

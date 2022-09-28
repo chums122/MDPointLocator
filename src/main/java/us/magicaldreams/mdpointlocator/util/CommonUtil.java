@@ -55,6 +55,11 @@ public class CommonUtil {
         return permissionNode + "." + permission;
     }
 
+    public static String getStartPointNotExistMsg(String pointName) {
+        return getBrandedMsgPrefix(ChatColor.RED + "Start point " + ChatColor.YELLOW + pointName + ChatColor.RED + "does not exist!");
+
+    }
+
     public static String getPointListHelpLine() {
         return getBrandedMsgPrefix(ChatColor.YELLOW + "Please run " + ChatColor.GOLD + "/point list" + ChatColor.YELLOW + " for a list of available points.");
 

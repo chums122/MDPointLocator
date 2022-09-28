@@ -7,7 +7,7 @@ import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import us.magicaldreams.mdpointlocator.PointConfig;
+import us.magicaldreams.mdpointlocator.util.PointConfig;
 import us.magicaldreams.mdpointlocator.command.MDSubCommand;
 import us.magicaldreams.mdpointlocator.util.CommonUtil;
 
@@ -63,7 +63,7 @@ public class PointPlotSubCommand implements MDSubCommand {
             loc.getBlock().setType(Material.GLASS);
             player.teleport(loc);
         } else {
-            player.sendMessage(CommonUtil.getBrandedMsgPrefix(ChatColor.RED + "Start point " + ChatColor.YELLOW + args[0] + ChatColor.RED + "does not exist!"));
+            sender.sendMessage(CommonUtil.getStartPointNotExistMsg(args[0]));
             player.sendMessage(CommonUtil.getPointListHelpLine());
         }
     }
