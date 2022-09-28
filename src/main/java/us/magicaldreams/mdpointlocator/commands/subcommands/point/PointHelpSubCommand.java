@@ -135,7 +135,7 @@ public class PointHelpSubCommand implements MDSubCommand {
     }
 
     public String getUsage() {
-        return "/point help";
+        return "/point help (page)";
     }
 
     public String getDescription() {

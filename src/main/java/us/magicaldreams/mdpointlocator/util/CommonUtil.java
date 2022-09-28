@@ -55,6 +55,11 @@ public class CommonUtil {
         return permissionNode + "." + permission;
     }
 
+    public static String getPointListHelpLine() {
+        return getBrandedMsgPrefix(ChatColor.YELLOW + "Please run " + ChatColor.GOLD + "/point list" + ChatColor.YELLOW + " for a list of available points.");
+
+    }
+
     public static Location getPointLocation(double length, double heading, double pointMultiplier, World world, double x, double y, double z, float yaw, float pitch) {
         double rad = heading / 180.0 * Math.PI;
         x = x + (int)(Math.round(pointMultiplier * (length * Math.sin(rad))));

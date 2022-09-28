@@ -51,6 +51,7 @@ public class PointCreateSubCommand implements MDSubCommand {
             PointConfig.saveConfig();
         } else {
             player.sendMessage(CommonUtil.getBrandedMsgPrefix(ChatColor.RED + "Start point already exists!"));
+            player.sendMessage(CommonUtil.getPointListHelpLine());
         }
     }
 

@@ -59,16 +59,17 @@ public class PointPlotSubCommand implements MDSubCommand {
 
             Location loc = CommonUtil.getPointLocation(length, heading, scaleMultiplier, world, x, y, z, yaw, pitch);
 
-            player.sendMessage(CommonUtil.getBrandedMsgPrefix("Teleported to " + ChatColor.GREEN + "X:" + x + " Y:" + y + " Z:" + z));
+            player.sendMessage(CommonUtil.getBrandedMsgPrefix(ChatColor.AQUA + "Teleported to " + ChatColor.GREEN + "X:" + x + " Y:" + y + " Z:" + z));
             loc.getBlock().setType(Material.GLASS);
             player.teleport(loc);
         } else {
             player.sendMessage(CommonUtil.getBrandedMsgPrefix(ChatColor.RED + "Start point " + ChatColor.YELLOW + args[0] + ChatColor.RED + "does not exist!"));
+            player.sendMessage(CommonUtil.getPointListHelpLine());
         }
     }
 
     public String getPermission() {
-        return CommonUtil.getPermissionNode("create");
+        return CommonUtil.getPermissionNode();
     }
 
     public String getUsage() {

@@ -5,6 +5,7 @@ import us.magicaldreams.mdpointlocator.commands.PointBaseCommand;
 import us.magicaldreams.mdpointlocator.commands.subcommands.point.PointHelpSubCommand;
 import us.magicaldreams.mdpointlocator.commands.subcommands.point.PointCreateSubCommand;
 import us.magicaldreams.mdpointlocator.commands.subcommands.point.PointPlotSubCommand;
+import us.magicaldreams.mdpointlocator.commands.subcommands.point.PointRemoveSubCommand;
 import us.magicaldreams.mdpointlocator.util.CommonUtil;
 
 import java.util.logging.Level;
@@ -39,8 +40,9 @@ public final class MDPointLocator extends JavaPlugin {
         PointBaseCommand pointBaseCommand = new PointBaseCommand();
         getCommand("point").setExecutor(pointBaseCommand);
         pointBaseCommand.registerCommand("help", new PointHelpSubCommand());
-        pointBaseCommand.registerCommand("create", new PointCreateSubCommand());
         pointBaseCommand.registerCommand("plot", new PointPlotSubCommand());
+        pointBaseCommand.registerCommand("create", new PointCreateSubCommand());
+        pointBaseCommand.registerCommand("remove", new PointRemoveSubCommand());
     }
 
     public static MDPointLocator getInstance() {
