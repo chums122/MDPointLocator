@@ -19,7 +19,7 @@ import java.util.Map;
  * 9/21/2022 - 2:37 PM
  **/
 
-public class HelpSubCommand implements MDSubCommand {
+public class PointHelpSubCommand implements MDSubCommand {
 
     @Override
     public void onCommand(CommandSender sender, Command command, String[] args) {

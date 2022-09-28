@@ -1,9 +1,8 @@
 package us.magicaldreams.mdpointlocator;
 
-import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import us.magicaldreams.mdpointlocator.commands.PointBaseCommand;
-import us.magicaldreams.mdpointlocator.commands.subcommands.point.HelpSubCommand;
+import us.magicaldreams.mdpointlocator.commands.subcommands.point.PointHelpSubCommand;
 import us.magicaldreams.mdpointlocator.commands.subcommands.point.PointCreateSubCommand;
 import us.magicaldreams.mdpointlocator.commands.subcommands.point.PointPlotSubCommand;
 import us.magicaldreams.mdpointlocator.util.CommonUtil;
@@ -39,7 +38,7 @@ public final class MDPointLocator extends JavaPlugin {
     private void registerCommands() {
         PointBaseCommand pointBaseCommand = new PointBaseCommand();
         getCommand("point").setExecutor(pointBaseCommand);
-        pointBaseCommand.registerCommand("help", new HelpSubCommand());
+        pointBaseCommand.registerCommand("help", new PointHelpSubCommand());
         pointBaseCommand.registerCommand("create", new PointCreateSubCommand());
         pointBaseCommand.registerCommand("plot", new PointPlotSubCommand());
     }
