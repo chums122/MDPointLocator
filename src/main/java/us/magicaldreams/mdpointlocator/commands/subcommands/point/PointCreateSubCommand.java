@@ -22,7 +22,6 @@ public class PointCreateSubCommand implements MDSubCommand {
 
     @Override
     public void onCommand(CommandSender sender, Command command, String[] args) {
-
         Player player = (Player) sender;
         double scale = 1.0;
 

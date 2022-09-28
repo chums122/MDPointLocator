@@ -1,6 +1,8 @@
 package us.magicaldreams.mdpointlocator.util;
 
 import net.md_5.bungee.api.ChatColor;
+import org.bukkit.Location;
+import org.bukkit.World;
 import org.bukkit.plugin.PluginDescriptionFile;
 import us.magicaldreams.mdpointlocator.MDPointLocator;
 
@@ -51,6 +53,13 @@ public class CommonUtil {
 
     public static String getPermissionNode(String permission) {
         return permissionNode + "." + permission;
+    }
+
+    public static Location getPointLocation(double length, double heading, double pointMultiplier, World world, double x, double y, double z, float yaw, float pitch) {
+        double rad = heading / 180.0 * Math.PI;
+        x = x + (int)(Math.round(pointMultiplier * (length * Math.sin(rad))));
+        z = z + (int)(Math.round(pointMultiplier * (length * Math.cos(rad))));
+        return new Location(world, x, y, z, yaw, pitch);
     }
 
     // Function checks if input is string
