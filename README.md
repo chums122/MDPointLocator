@@ -1,4 +1,4 @@
-# MD Point Locator
+# MD Point Locator 
 MD Point Locator is free to download on spigot.
 * [Spigot Release Page](https://www.spigotmc.org/resources/mdpointlocator.85065/ "Spigot Plugin Page")
 
