@@ -4,10 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 
-<<<<<<< HEAD:src/main/java/us/magicaldreams/mdpointlocator/util/PointConfig.java
 import net.md_5.bungee.api.ChatColor;
-=======
->>>>>>> main:src/main/java/us/magicaldreams/mdpointlocator/PointConfig.java
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -36,11 +33,7 @@ public class PointConfig {
                 file.createNewFile();
             } catch (IOException e) {
                 e.printStackTrace();
-<<<<<<< HEAD:src/main/java/us/magicaldreams/mdpointlocator/util/PointConfig.java
                 MDPointLocator.getInstance().getLogger().log(Level.SEVERE, CommonUtil.getBrandedConsoleMsg(ChatColor.RED + "Error creating point locator config file..."));
-=======
-                Bukkit.getLogger().log(Level.SEVERE, "MDPointLocator > Error creating point locator config file...");
->>>>>>> main:src/main/java/us/magicaldreams/mdpointlocator/PointConfig.java
             }
         }
         customFile = YamlConfiguration.loadConfiguration(file);
@@ -56,11 +49,7 @@ public class PointConfig {
             customFile.save(file);
         } catch (IOException e) {
             e.printStackTrace();
-<<<<<<< HEAD:src/main/java/us/magicaldreams/mdpointlocator/util/PointConfig.java
             MDPointLocator.getInstance().getLogger().log(Level.SEVERE, CommonUtil.getBrandedConsoleMsg(ChatColor.RED + "Error saving point locator config file..."));
-=======
-            Bukkit.getLogger().log(Level.SEVERE, "MDPointLocator > Error saving point locator config file...");
->>>>>>> main:src/main/java/us/magicaldreams/mdpointlocator/PointConfig.java
         }
     }
 

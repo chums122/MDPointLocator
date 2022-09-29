@@ -1,13 +1,10 @@
 package us.magicaldreams.mdpointlocator;
 
-import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import us.magicaldreams.mdpointlocator.commands.PointBaseCommand;
 import us.magicaldreams.mdpointlocator.commands.subcommands.point.*;
 import us.magicaldreams.mdpointlocator.util.CommonUtil;
 import us.magicaldreams.mdpointlocator.util.PointConfig;
-
-import java.util.logging.Level;
 
 import java.util.logging.Level;
 
@@ -18,7 +15,6 @@ public final class MDPointLocator extends JavaPlugin {
     @Override
     public void onEnable() {
 
-<<<<<<< HEAD
         // Set main instance
         instance = this;
 
@@ -51,20 +47,6 @@ public final class MDPointLocator extends JavaPlugin {
 
     public static MDPointLocator getInstance() {
         return instance;
-=======
-        // Config setup for PointLocator
-        PointConfig.init();
-
-        this.getCommand("point").setExecutor(new PointCommand());
-        this.getCommand("point15").setExecutor(new PointCommand());
-        this.getCommand("point2").setExecutor(new PointCommand());
-        this.getCommand("pointsave").setExecutor(new PointCommand());
-        this.getCommand("pointdel").setExecutor(new PointCommand());
-        this.getCommand("pointlist").setExecutor(new PointCommand());
-        this.getCommand("pointinfo").setExecutor(new PointCommand());
-
-        Bukkit.getLogger().log(Level.INFO, "MDPointLocator > Plugin loaded successfully");
->>>>>>> main
     }
 
 }
