@@ -1,4 +1,4 @@
-# MD Point Locator 
+# MD Point Locator
 MD Point Locator is free to download on spigot.
 * [Spigot Release Page](https://www.spigotmc.org/resources/mdpointlocator.85065/ "Spigot Plugin Page")
 
@@ -9,7 +9,7 @@ MD Point Locator is free to download on spigot.
 ## Requirements
 * Java 8 +
 
-## About MDPointLocator
+## About MD Point Locator
 MD Point Locator is a free spigot plugin developed by MagicalDreamsUS to help Minecraft theme park servers outline to scale using Google Earth.
 
 ## Commands
