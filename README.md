@@ -7,7 +7,7 @@ MDPointLocator is free to download on spigot.
 * **Discord Community** - <https://discord.gg/rrTk7ab>
 
 ## Requirements
-* Java 8+
+* Java 8
 
 ## About MDPointLocator
 MDPointLocator is a free spigot plugin developed by MagicalDreamsUS to help Minecraft theme park servers outline to scale using Google Earth.
