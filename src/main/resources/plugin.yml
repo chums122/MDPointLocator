@@ -5,31 +5,6 @@ authors: [chums122, Kev_Green, Rei_Arch]
 description: MagicalDreams.US PointLocator Plugin
 website: https://magicaldreams.us/
 commands:
-  pointsave:
-    description: The command to save a starting point.
-    usage: /pointsave <x> <z> <name>
-    permission: md.point
-  pointdel:
-    description: The command to delete a starting point.
-    usage: /pointdel <name>
-    permission: md.point
-  pointlist:
-    description: The command to list starting points.
-    usage: /pointlist
-    permission: md.point
-  pointinfo:
-    description: The command to view info about a specific starting point.
-    usage: /pointinfo <name>
-    permission: md.point
   point:
-    description: The Command plot a 1-to-1 point.
-    usage: /point <name> <length> <heading>
-    permission: md.point
-  point15:
-    description: The Command plot a 1-and-a-half-to-1 point.
-    usage: /point15 <name> <length> <heading>
-    permission: md.point
-  point2:
-    description: The Command plot a 2-to-1 point.
-    usage: /point2 <name> <length> <heading>
-    permission: md.point
+    description: The base point locator command. Will display help for commands the player has access to if unknown or no subcommand is provided.
+    usage: /point [subcommand]
