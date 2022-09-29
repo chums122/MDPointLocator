@@ -39,7 +39,7 @@ public final class MDPointLocator extends JavaPlugin {
         getCommand("point").setExecutor(pointBaseCommand);
         pointBaseCommand.registerCommand("help", new PointHelpSubCommand());
         pointBaseCommand.registerCommand("list", new PointListSubCommand());
-        pointBaseCommand.registerCommand("info", new PointPlotSubCommand());
+        pointBaseCommand.registerCommand("info", new PointInfoSubCommand());
         pointBaseCommand.registerCommand("plot", new PointPlotSubCommand());
         pointBaseCommand.registerCommand("create", new PointCreateSubCommand());
         pointBaseCommand.registerCommand("remove", new PointRemoveSubCommand());

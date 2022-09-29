@@ -15,6 +15,10 @@ import us.magicaldreams.mdpointlocator.util.CommonUtil;
 public class PointListSubCommand implements MDSubCommand {
     @Override
     public void onCommand(CommandSender sender, Command command, String[] args) {
+        if (PointConfig.getConfig().getKeys(false).isEmpty()) {
+            sender.sendMessage(CommonUtil.getBrandedMsgPrefix(ChatColor.AQUA + "There are currently no start points! You can create a new start point by running the /point create command."));
+            return;
+        }
         sender.sendMessage(CommonUtil.getBrandedMsgPrefix(ChatColor.AQUA + "Current start points include: " + ChatColor.GREEN + PointConfig.getConfig().getKeys(false)));
     }
 

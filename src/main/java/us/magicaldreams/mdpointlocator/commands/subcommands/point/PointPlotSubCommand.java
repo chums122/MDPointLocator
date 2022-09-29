@@ -24,29 +24,30 @@ public class PointPlotSubCommand implements MDSubCommand {
         Player player = (Player) sender;
 
         // If arguments are missing
-        if (args.length < 3) {
-            player.sendMessage(CommonUtil.getBrandedMsgPrefix(ChatColor.RED + "Missing arguments! Please use " + getUsage()));
+        if (args.length < 4) {
+            player.sendMessage(CommonUtil.getMissingArgsMsg(getUsage()));
             return;
         } else if (args.length > 4) {
-            player.sendMessage(CommonUtil.getBrandedMsgPrefix(ChatColor.RED + "Too many arguments! Please use " + getUsage()));
+            player.sendMessage(CommonUtil.getTooManyArgsMsg(getUsage()));
             return;
-        } else if (!CommonUtil.isDouble(args[1]) || !CommonUtil.isDouble(args[2])) {
+        } else if (!CommonUtil.isDouble(args[2]) || !CommonUtil.isDouble(args[3])) {
             // If length and heading are not integers/double
             player.sendMessage(CommonUtil.getBrandedMsgPrefix(ChatColor.RED + "Length and Heading must be numbers! Please use /" + getUsage()));
             return;
         }
 
-        if (PointConfig.getConfig().contains(args[0])) {
-            List<String> coords = PointConfig.getConfig().getStringList(args[0]);
+        String plotName = args[1];
+        double length = Double.parseDouble(args[2]);
+        double heading = Double.parseDouble(args[3]);
+
+        if (PointConfig.getConfig().contains(plotName)) {
+            List<String> coords = PointConfig.getConfig().getStringList(plotName);
 
             int x = Integer.parseInt(coords.get(0));
             int z = Integer.parseInt(coords.get(1));
 
-            double length = Double.parseDouble(args[1]);
-            double heading = Double.parseDouble(args[2]);
-
             World world = player.getWorld();
-            double y = player.getLocation().getY();
+            int y = (int) player.getLocation().getY();
             float yaw = player.getLocation().getYaw();
             float pitch = player.getLocation().getPitch();
 
@@ -59,11 +60,11 @@ public class PointPlotSubCommand implements MDSubCommand {
 
             Location loc = CommonUtil.getPointLocation(length, heading, scaleMultiplier, world, x, y, z, yaw, pitch);
 
-            player.sendMessage(CommonUtil.getBrandedMsgPrefix(ChatColor.AQUA + "Teleported to " + ChatColor.GREEN + "X:" + x + " Y:" + y + " Z:" + z));
+            player.sendMessage(CommonUtil.getBrandedMsgPrefix(ChatColor.AQUA + "Teleported to " + ChatColor.GREEN + "X:" + loc.getX() + " Y:" + loc.getY() + " Z:" + loc.getZ()));
             loc.getBlock().setType(Material.GLASS);
             player.teleport(loc);
         } else {
-            sender.sendMessage(CommonUtil.getStartPointNotExistMsg(args[0]));
+            sender.sendMessage(CommonUtil.getStartPointNotExistMsg(plotName));
             player.sendMessage(CommonUtil.getPointListHelpLine());
         }
     }

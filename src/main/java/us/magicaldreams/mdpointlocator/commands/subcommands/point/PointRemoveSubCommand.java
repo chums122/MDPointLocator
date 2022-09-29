@@ -16,18 +16,20 @@ public class PointRemoveSubCommand implements MDSubCommand {
     @Override
     public void onCommand(CommandSender sender, Command command, String[] args) {
 
-        if (args.length < 1) {
-            sender.sendMessage(CommonUtil.getBrandedMsgPrefix(ChatColor.RED + "Missing arguments! Please use " + getUsage()));
+        if (args.length < 2) {
+            sender.sendMessage(CommonUtil.getMissingArgsMsg(getUsage()));
             return;
-        } else if (args.length > 1) {
-            sender.sendMessage(CommonUtil.getBrandedMsgPrefix(ChatColor.RED + "Too many arguments! Please use " + getUsage()));
+        } else if (args.length > 2) {
+            sender.sendMessage(CommonUtil.getTooManyArgsMsg(getUsage()));
             return;
         }
 
-        if (PointConfig.getConfig().contains(args[0])) {
-            PointConfig.getConfig().set(args[0], null);
+        String plotName = args[1];
+
+        if (PointConfig.getConfig().contains(plotName)) {
+            PointConfig.getConfig().set(plotName, null);
             PointConfig.saveConfig();
-            sender.sendMessage(CommonUtil.getBrandedMsgPrefix(ChatColor.AQUA + "Start point " + ChatColor.GREEN + args[0] + ChatColor.AQUA + " has been deleted!"));
+            sender.sendMessage(CommonUtil.getBrandedMsgPrefix(ChatColor.AQUA + "Start point " + ChatColor.GREEN + plotName + ChatColor.AQUA + " has been deleted!"));
         } else {
             sender.sendMessage(CommonUtil.getStartPointNotExistMsg(args[0]));
             sender.sendMessage(CommonUtil.getPointListHelpLine());

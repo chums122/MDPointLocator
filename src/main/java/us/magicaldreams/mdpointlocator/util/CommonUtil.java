@@ -56,13 +56,11 @@ public class CommonUtil {
     }
 
     public static String getStartPointNotExistMsg(String pointName) {
-        return getBrandedMsgPrefix(ChatColor.RED + "Start point " + ChatColor.YELLOW + pointName + ChatColor.RED + "does not exist!");
-
+        return getBrandedMsgPrefix(ChatColor.RED + "Start point " + ChatColor.YELLOW + pointName + ChatColor.RED + " does not exist!");
     }
 
     public static String getPointListHelpLine() {
         return getBrandedMsgPrefix(ChatColor.YELLOW + "Please run " + ChatColor.GOLD + "/point list" + ChatColor.YELLOW + " for a list of available points.");
-
     }
 
     public static Location getPointLocation(double length, double heading, double pointMultiplier, World world, double x, double y, double z, float yaw, float pitch) {
@@ -70,6 +68,14 @@ public class CommonUtil {
         x = x + (int)(Math.round(pointMultiplier * (length * Math.sin(rad))));
         z = z + (int)(Math.round(pointMultiplier * (length * Math.cos(rad))));
         return new Location(world, x, y, z, yaw, pitch);
+    }
+
+    public static String getMissingArgsMsg(String usage) {
+        return getBrandedMsgPrefix(ChatColor.RED + "Missing arguments! Please use " + usage);
+    }
+
+    public static String getTooManyArgsMsg(String usage) {
+        return getBrandedMsgPrefix(ChatColor.RED + "Too many arguments! Please use " + usage);
     }
 
     // Function checks if input is string
