@@ -52,10 +52,8 @@ public class PointPlotSubCommand implements MDSubCommand {
             float pitch = player.getLocation().getPitch();
 
             double scaleMultiplier = 1;
-            try {
+            if (coords.size() == 3) {
                 scaleMultiplier = Double.parseDouble(coords.get(2));
-            } catch (NullPointerException ignored) {
-                // scale = 1.0
             }
 
             Location loc = CommonUtil.getPointLocation(length, heading, scaleMultiplier, world, x, y, z, yaw, pitch);
