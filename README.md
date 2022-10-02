@@ -21,7 +21,7 @@ MD Point Locator is a free spigot plugin developed by MagicalDreamsUS to help Mi
 * **/point list** - Lists available starting points.
     * **Usage** - /point list
 * **/point info** - View info for a starting point.
-    * **Usage** - /pointsave info \<name>
+    * **Usage** - /point info \<name>
 * **/point plot** - Plot a point.
     * **Usage** - /point plot \<name> \<length> \<heading>
 * **/point create** - Create a new global starting point.
