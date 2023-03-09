@@ -1,5 +1,10 @@
 package us.magicaldreams.mdpointlocator;
 
+import java.util.HashMap;
+import java.util.UUID;
+
+import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.plugin.java.JavaPlugin;
 import us.magicaldreams.mdpointlocator.commands.PointBaseCommand;
 import us.magicaldreams.mdpointlocator.commands.subcommands.point.*;
