@@ -65,8 +65,12 @@ public class CommonUtil {
 
     public static Location getPointLocation(double length, double heading, double pointMultiplier, World world, double x, double y, double z, float yaw, float pitch) {
         double rad = heading / 180.0 * Math.PI;
-        x = x + (int)(Math.round(pointMultiplier * (length * Math.sin(rad))));
-        z = z + (int)(Math.round(pointMultiplier * (length * Math.cos(rad))));
+        int xchange = (int)(Math.round(pointMultiplier * (length * Math.sin(rad))));
+        int zchange = (int)(Math.round(pointMultiplier * (length * Math.cos(rad))));
+        x = x + xchange;
+        z = z - zchange;
+//        x = x + (int)(Math.round(pointMultiplier * (length * Math.sin(rad))));
+//        z = z + (int)(Math.round(pointMultiplier * (length * Math.cos(rad))));
         return new Location(world, x, y, z, yaw, pitch);
     }
 
