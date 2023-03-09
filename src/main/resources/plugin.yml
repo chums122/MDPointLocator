@@ -1,9 +1,10 @@
 name: MDPointLocator
 version: ${project.version}
 main: us.magicaldreams.mdpointlocator.MDPointLocator
-authors: [chums122, Kev_Green, Rei_Arch]
+authors: [chums122, Kev_Green, Rei_Arch, zackatack108]
 description: MagicalDreams.US PointLocator Plugin
 website: https://magicaldreams.us/
+api-version: 1.13
 commands:
   point:
     description: The base point locator command. Will display help for commands the player has access to if unknown or no subcommand is provided.
