@@ -71,7 +71,7 @@ public class PointPlotSubCommand implements MDSubCommand {
             }
 
             loc.getBlock().setType(data.GetBlockType());
-
+            player.sendMessage(CommonUtil.getBrandedMsgPrefix(ChatColor.AQUA + "Point created at " + ChatColor.GREEN + "X:" + loc.getX() + " Y:" + loc.getY() + " Z:" + loc.getZ()));
             /**player.sendMessage(CommonUtil.getBrandedMsgPrefix(ChatColor.AQUA + "Teleported to " + ChatColor.GREEN + "X:" + loc.getX() + " Y:" + loc.getY() + " Z:" + loc.getZ()));
             player.teleport(loc);*/
         } else {
