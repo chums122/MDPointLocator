@@ -4,11 +4,15 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
+import org.bukkit.util.StringUtil;
 import us.magicaldreams.mdpointlocator.command.MDSubCommand;
 import us.magicaldreams.mdpointlocator.util.CommonUtil;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -16,7 +20,7 @@ import java.util.Map;
  * 9/21/2022 - 2:36 PM
  **/
 
-public class PointBaseCommand implements CommandExecutor {
+public class PointBaseCommand implements CommandExecutor, TabCompleter {
 
     //Point base command class
     private static Map<String, MDSubCommand> commands = new HashMap<>();
@@ -59,6 +63,18 @@ public class PointBaseCommand implements CommandExecutor {
         return true;
     }
 
+    @Override
+    public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+        //create new array
+        final List<String> completions = new ArrayList<>();
+        //copy matches of first argument from list (ex: if first arg is 'm' will return just 'minecraft')
+        StringUtil.copyPartialMatches(args[0], CommonUtil.convertMapKeysToIterableString(commands), completions);
+        //sort the list
+        //Collections.sort(completions);
+        //Edit: sorting the list it's not required anymore
+        return completions;
+    }
+
     public void registerCommand(String cmd, MDSubCommand subCommand) {
         commands.put(cmd, subCommand);
     }
@@ -66,6 +82,5 @@ public class PointBaseCommand implements CommandExecutor {
     public static Map<String, MDSubCommand> getCommands() {
         return commands;
     }
-
 
 }

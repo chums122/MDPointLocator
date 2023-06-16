@@ -50,4 +50,6 @@ public class PointRemoveSubCommand implements MDSubCommand {
     public String getDescription() {
         return "Remove a global starting point.";
     }
+
+
 }
