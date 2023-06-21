@@ -3,6 +3,7 @@ package us.magicaldreams.mdpointlocator.util;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.World;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginDescriptionFile;
 import us.magicaldreams.mdpointlocator.MDPointLocator;
 import us.magicaldreams.mdpointlocator.command.MDSubCommand;
@@ -10,6 +11,7 @@ import us.magicaldreams.mdpointlocator.command.MDSubCommand;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
 
 /**
  * Created by Trevor Chumbley
@@ -71,7 +73,7 @@ public class CommonUtil {
     public static Location getPointLocation(double length, double heading, double pointMultiplier, World world, double x, double y, double z, float yaw, float pitch) {
         double rad = heading / 180.0 * Math.PI;
         x = x + (int)(Math.round(pointMultiplier * (length * Math.sin(rad))));
-        z = z + (int)(Math.round(pointMultiplier * (length * Math.cos(rad))));
+        z = z - (int)(Math.round(pointMultiplier * (length * Math.cos(rad))));
         return new Location(world, x, y, z, yaw, pitch);
     }
 
