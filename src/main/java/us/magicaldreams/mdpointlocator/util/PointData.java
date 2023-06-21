@@ -53,6 +53,7 @@ public class PointData {
 
     public int GetY()
     {
+        if (this.Y == )
         return this.Y;
     }
 

@@ -1,4 +1,4 @@
-package us.magicaldreams.mdpointlocator.commands.subcommands.point;
+package us.magicaldreams.mdpointlocator.commands.subcommands;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -18,16 +18,20 @@ public class PointMaterialSubCommand implements MDSubCommand
         MDPointLocator plugin = MDPointLocator.getInstance();
 
         if(CommonUtil.isNullArgument(args, 1)) {
-            CommonUtil.getMissingArgsMsg(getUsage());
-        } else {
-            if(Material.getMaterial(args[1].toUpperCase()).isBlock()) {
+            player.sendMessage(CommonUtil.getMissingArgsMsg(getUsage()));
+            return;
+        }
+
+        try {
+            if (Material.getMaterial(args[1].toUpperCase()).isBlock()) {
                 Material block = Material.getMaterial(args[1].toUpperCase());
                 plugin.getPlayerData().addToHashMap(player.getUniqueId(), block, -1, null);
                 player.sendMessage(CommonUtil.getBrandedMsgPrefix(ChatColor.AQUA + "Point material set to: " + ChatColor.GREEN + args[1].toUpperCase()));
-            } else {
-                player.sendMessage(CommonUtil.getBrandedMsgPrefix(ChatColor.RED + "The material type you selected is not a block type!"));
             }
+        } catch (NullPointerException e) {
+            player.sendMessage(CommonUtil.getBrandedMsgPrefix(ChatColor.RED + "The material type you selected is not a block type!"));
         }
+
     }
 
     @Override

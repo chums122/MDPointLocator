@@ -1,4 +1,4 @@
-package us.magicaldreams.mdpointlocator.commands.subcommands.point;
+package us.magicaldreams.mdpointlocator.commands.subcommands;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -15,17 +15,22 @@ public class PointSetYSubCommand implements MDSubCommand
     @Override
     public void onCommand(CommandSender sender, Command command, String[] args) {
 
-        Player player = (Player)sender;
+        Player player = (Player) sender;
         MDPointLocator plugin = MDPointLocator.getInstance();
 
-        if(CommonUtil.isNullArgument(args, 1)) {
-            CommonUtil.getMissingArgsMsg(getUsage());
-        } else {
-            PlayerData data = plugin.getPlayerData();
-            data.addToHashMap(player.getUniqueId(), Material.AIR, Integer.parseInt(args[1]), null);
-            player.sendMessage(CommonUtil.getBrandedMsgPrefix(ChatColor.AQUA + "Points will now spawn at Y: " + ChatColor.GREEN + args[1]));
+        // Check if args not 1 or if not an int
+        if (args.length != 2) {
+            player.sendMessage(CommonUtil.getMissingArgsMsg(getUsage()));
+            return;
+        } else if (!CommonUtil.isInteger(args[1])) {
+            player.sendMessage(CommonUtil.getBrandedMsgPrefix(ChatColor.RED + "Y value must be a number!"));
+            player.sendMessage(CommonUtil.getMissingArgsMsg(getUsage()));
+            return;
         }
 
+        PlayerData data = plugin.getPlayerData();
+        data.addToHashMap(player.getUniqueId(), Material.AIR, Integer.parseInt(args[1]), null);
+        player.sendMessage(CommonUtil.getBrandedMsgPrefix(ChatColor.AQUA + "Points will now spawn at Y: " + ChatColor.GREEN + args[1]));
     }
 
     @Override

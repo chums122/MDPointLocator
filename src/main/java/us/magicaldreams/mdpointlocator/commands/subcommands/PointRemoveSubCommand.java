@@ -1,4 +1,4 @@
-package us.magicaldreams.mdpointlocator.commands.subcommands.point;
+package us.magicaldreams.mdpointlocator.commands.subcommands;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -31,7 +31,7 @@ public class PointRemoveSubCommand implements MDSubCommand {
             PointConfig.saveConfig();
             sender.sendMessage(CommonUtil.getBrandedMsgPrefix(ChatColor.AQUA + "Start point " + ChatColor.GREEN + plotName + ChatColor.AQUA + " has been deleted!"));
         } else {
-            sender.sendMessage(CommonUtil.getStartPointNotExistMsg(args[0]));
+            sender.sendMessage(CommonUtil.getStartPointNotExistMsg(plotName));
             sender.sendMessage(CommonUtil.getPointListHelpLine());
         }
     }

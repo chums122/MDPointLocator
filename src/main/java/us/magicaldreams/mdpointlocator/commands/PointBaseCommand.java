@@ -1,6 +1,8 @@
 package us.magicaldreams.mdpointlocator.commands;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -8,12 +10,10 @@ import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 import org.bukkit.util.StringUtil;
 import us.magicaldreams.mdpointlocator.command.MDSubCommand;
+import us.magicaldreams.mdpointlocator.commands.subcommands.PointMaterialSubCommand;
 import us.magicaldreams.mdpointlocator.util.CommonUtil;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by Trevor Chumbley
@@ -65,13 +65,25 @@ public class PointBaseCommand implements CommandExecutor, TabCompleter {
 
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
-        //create new array
+
+        // Check if args is already bussin fr fr ong
+        if (args.length > 1) {
+            // Tab complete for materials
+            if (args[0].equals("material")) {
+                List<String> materialCompletions = new ArrayList<>();
+                List<String> materialList = new ArrayList<>();
+                for(Material material : Material.values()) {
+                    materialList.add(material.toString());
+                }
+                StringUtil.copyPartialMatches(args[1], materialList, materialCompletions);
+                return materialCompletions;
+            }
+            return null;
+        }
+
+        // Create new array
         final List<String> completions = new ArrayList<>();
-        //copy matches of first argument from list (ex: if first arg is 'm' will return just 'minecraft')
         StringUtil.copyPartialMatches(args[0], CommonUtil.convertMapKeysToIterableString(commands), completions);
-        //sort the list
-        //Collections.sort(completions);
-        //Edit: sorting the list it's not required anymore
         return completions;
     }
 

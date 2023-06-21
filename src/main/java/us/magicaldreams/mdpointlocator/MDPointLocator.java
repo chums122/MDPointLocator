@@ -2,7 +2,7 @@ package us.magicaldreams.mdpointlocator;
 
 import org.bukkit.plugin.java.JavaPlugin;
 import us.magicaldreams.mdpointlocator.commands.PointBaseCommand;
-import us.magicaldreams.mdpointlocator.commands.subcommands.point.*;
+import us.magicaldreams.mdpointlocator.commands.subcommands.*;
 import us.magicaldreams.mdpointlocator.util.CommonUtil;
 import us.magicaldreams.mdpointlocator.util.PlayerData;
 import us.magicaldreams.mdpointlocator.util.PointConfig;
@@ -72,6 +72,7 @@ public final class MDPointLocator extends JavaPlugin {
         if (playerData == null) {
             playerData = new PlayerData();
         }
+
         return playerData;
     }
 

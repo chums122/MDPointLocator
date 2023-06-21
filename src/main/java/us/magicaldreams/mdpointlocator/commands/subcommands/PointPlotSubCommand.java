@@ -1,4 +1,4 @@
-package us.magicaldreams.mdpointlocator.commands.subcommands.point;
+package us.magicaldreams.mdpointlocator.commands.subcommands;
 
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Location;
@@ -65,15 +65,13 @@ public class PointPlotSubCommand implements MDSubCommand {
             PointData data = plugin.getPlayerData().getPointData(player.getUniqueId());
             if(data == null) {
                 plugin.getPlayerData().addToHashMap(player.getUniqueId(), Material.WHITE_WOOL, y, loc);
-            }
-            else {
+            } else {
                 plugin.getPlayerData().addToHashMap(player.getUniqueId(), Material.AIR, -1, loc);
             }
 
             loc.getBlock().setType(data.GetBlockType());
             player.sendMessage(CommonUtil.getBrandedMsgPrefix(ChatColor.AQUA + "Point created at " + ChatColor.GREEN + "X:" + loc.getX() + " Y:" + loc.getY() + " Z:" + loc.getZ()));
-            /**player.sendMessage(CommonUtil.getBrandedMsgPrefix(ChatColor.AQUA + "Teleported to " + ChatColor.GREEN + "X:" + loc.getX() + " Y:" + loc.getY() + " Z:" + loc.getZ()));
-             player.teleport(loc);*/
+
         } else {
             sender.sendMessage(CommonUtil.getStartPointNotExistMsg(plotName));
             player.sendMessage(CommonUtil.getPointListHelpLine());
