@@ -1,6 +1,5 @@
 package us.magicaldreams.mdpointlocator.commands;
 
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
@@ -10,7 +9,6 @@ import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 import org.bukkit.util.StringUtil;
 import us.magicaldreams.mdpointlocator.command.MDSubCommand;
-import us.magicaldreams.mdpointlocator.commands.subcommands.PointMaterialSubCommand;
 import us.magicaldreams.mdpointlocator.util.CommonUtil;
 
 import java.util.*;
