@@ -34,7 +34,9 @@ public class PlayerData {
                         data.SetBlock(block);
                     }
 
-                    if (y != -1) { data.SetY(y); }
+                    if (y != -1) {
+                        data.SetY(y);
+                    }
 
                     if (pos != null) { data.SavePosition(pos); }
 

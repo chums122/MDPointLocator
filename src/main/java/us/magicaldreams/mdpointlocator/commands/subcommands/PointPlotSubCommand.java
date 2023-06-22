@@ -60,7 +60,14 @@ public class PointPlotSubCommand implements MDSubCommand {
             }
 
             MDPointLocator plugin = MDPointLocator.getInstance();
-            Location loc = CommonUtil.getPointLocation(length, heading, scaleMultiplier, world, x, plugin.getPlayerData().getPointData(player.getUniqueId()).GetY(), z, yaw, pitch);
+            Location loc;
+
+            try {
+                 loc = CommonUtil.getPointLocation(length, heading, scaleMultiplier, world, x, plugin.getPlayerData().getPointData(player.getUniqueId()).GetY(), z, yaw, pitch);
+            } catch (NullPointerException e) {
+                player.sendMessage(CommonUtil.getBrandedMsgPrefix(ChatColor.RED + "Please set point Y height using /point sety <value>"));
+                return;
+            }
 
             PointData data = plugin.getPlayerData().getPointData(player.getUniqueId());
             if(data == null) {
