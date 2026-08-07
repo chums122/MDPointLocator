@@ -1,4 +1,4 @@
-package us.magicaldreams.mdpointlocator.commands.subcommands.point;
+package us.magicaldreams.mdpointlocator.commands.subcommands;
 
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Location;
@@ -7,9 +7,11 @@ import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import us.magicaldreams.mdpointlocator.MDPointLocator;
 import us.magicaldreams.mdpointlocator.util.PointConfig;
 import us.magicaldreams.mdpointlocator.command.MDSubCommand;
 import us.magicaldreams.mdpointlocator.util.CommonUtil;
+import us.magicaldreams.mdpointlocator.util.PointData;
 
 import java.util.List;
 
@@ -19,6 +21,7 @@ import java.util.List;
  **/
 
 public class PointPlotSubCommand implements MDSubCommand {
+
     @Override
     public void onCommand(CommandSender sender, Command command, String[] args) {
         Player player = (Player) sender;
@@ -56,11 +59,26 @@ public class PointPlotSubCommand implements MDSubCommand {
                 scaleMultiplier = Double.parseDouble(coords.get(2));
             }
 
-            Location loc = CommonUtil.getPointLocation(length, heading, scaleMultiplier, world, x, y, z, yaw, pitch);
+            MDPointLocator plugin = MDPointLocator.getInstance();
+            Location loc;
 
-            player.sendMessage(CommonUtil.getBrandedMsgPrefix(ChatColor.AQUA + "Teleported to " + ChatColor.GREEN + "X:" + loc.getX() + " Y:" + loc.getY() + " Z:" + loc.getZ()));
-            loc.getBlock().setType(Material.GLASS);
-            player.teleport(loc);
+            try {
+                 loc = CommonUtil.getPointLocation(length, heading, scaleMultiplier, world, x, plugin.getPlayerData().getPointData(player.getUniqueId()).GetY(), z, yaw, pitch);
+            } catch (NullPointerException e) {
+                player.sendMessage(CommonUtil.getBrandedMsgPrefix(ChatColor.RED + "Please set point Y height using /point sety <value>"));
+                return;
+            }
+
+            PointData data = plugin.getPlayerData().getPointData(player.getUniqueId());
+            if(data == null) {
+                plugin.getPlayerData().addToHashMap(player.getUniqueId(), Material.WHITE_WOOL, y, loc);
+            } else {
+                plugin.getPlayerData().addToHashMap(player.getUniqueId(), Material.AIR, -1, loc);
+            }
+
+            loc.getBlock().setType(data.GetBlockType());
+            player.sendMessage(CommonUtil.getBrandedMsgPrefix(ChatColor.AQUA + "Point created at " + ChatColor.GREEN + "X:" + loc.getX() + " Y:" + loc.getY() + " Z:" + loc.getZ()));
+
         } else {
             sender.sendMessage(CommonUtil.getStartPointNotExistMsg(plotName));
             player.sendMessage(CommonUtil.getPointListHelpLine());

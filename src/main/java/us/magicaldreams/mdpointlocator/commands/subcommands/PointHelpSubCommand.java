@@ -1,4 +1,4 @@
-package us.magicaldreams.mdpointlocator.commands.subcommands.point;
+package us.magicaldreams.mdpointlocator.commands.subcommands;
 
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.ClickEvent;

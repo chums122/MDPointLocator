@@ -4,14 +4,19 @@ MD Point Locator is free to download on spigot.
 
 ## Useful Links
 * **Website** - <https://magicaldreams.us/>
-* **Discord Community** - <https://discord.gg/rrTk7ab>
+* **Discord Community** - <https://discord.gg/YGN5fPBT9p>
+* **Zack's Outlining Tool** - <https://github.com/zackatack108/Zacks-Outlining-Tool>
 
 ## Requirements
 * Java 8 +
-* Bukkit 1.12 +
+* Bukkit 1.13 +
+* WorldEdit for the **'/point connect'** command
 
 ## About MDPointLocator
 MD Point Locator is a free spigot plugin developed by MagicalDreamsUS to help Minecraft theme park servers outline to scale using Google Earth.
+
+## Zack's Outlining Tool
+MD Point Locator can be used in conjunction with Zack's Outlining Tool to help speed up the outlining process. Check out his repo in the link section above.
 
 ## Commands
 * **/point** - The base point locator command.
@@ -28,11 +33,19 @@ MD Point Locator is a free spigot plugin developed by MagicalDreamsUS to help Mi
     * **Usage** - /point create \<name> \<x> \<z> (scale)
 * **/point remove** - Remove a global starting point.
     * **Usage** - /point remove \<name>
+* **/point material** - Sets the material type for the point.
+  * **Usage** - /point setmaterial \<material>
+* **/point sety** - Set the Y value for the point
+  * **Usage** - /point sety \<Y value>
+* **/point connect** - Make a line between two points
+  * **Usage** - /point connect
+  * **Depends** - WorldEdit
 
 ## Permissions
 * **md.point** - Normal point locator operations
 * **md.point.create** - Permission to create global starting points.
 * **md.point.remove** - Permission to remove global starting points.
+* **md.point.connect** - Permission to connect points together.
 
 ## License
 MD Point Locator is licensed under the GNU General Public License v3.0. Please

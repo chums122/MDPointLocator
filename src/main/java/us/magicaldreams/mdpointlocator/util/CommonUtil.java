@@ -3,8 +3,15 @@ package us.magicaldreams.mdpointlocator.util;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.World;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginDescriptionFile;
 import us.magicaldreams.mdpointlocator.MDPointLocator;
+import us.magicaldreams.mdpointlocator.command.MDSubCommand;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.logging.Level;
 
 /**
  * Created by Trevor Chumbley
@@ -108,4 +115,20 @@ public class CommonUtil {
         }
     }
 
+    public static Iterable<String> convertMapKeysToIterableString(Map<?, ?> map) {
+        List<String> keys = new ArrayList<>();
+        for (Object key : map.keySet()) {
+            keys.add(key.toString());
+        }
+        return keys;
+    }
+
+    public static boolean isClassAvailable(String className) {
+        try {
+            Class.forName(className);
+            return true;
+        } catch (ClassNotFoundException e) {
+            return false;
+        }
+    }
 }

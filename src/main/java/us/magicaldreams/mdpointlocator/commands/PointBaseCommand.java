@@ -1,22 +1,24 @@
 package us.magicaldreams.mdpointlocator.commands;
 
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
+import org.bukkit.util.StringUtil;
 import us.magicaldreams.mdpointlocator.command.MDSubCommand;
 import us.magicaldreams.mdpointlocator.util.CommonUtil;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by Trevor Chumbley
  * 9/21/2022 - 2:36 PM
  **/
 
-public class PointBaseCommand implements CommandExecutor {
+public class PointBaseCommand implements CommandExecutor, TabCompleter {
 
     //Point base command class
     private static Map<String, MDSubCommand> commands = new HashMap<>();
@@ -59,6 +61,30 @@ public class PointBaseCommand implements CommandExecutor {
         return true;
     }
 
+    @Override
+    public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+
+        // Check if args is already bussin fr fr ong
+        if (args.length > 1) {
+            // Tab complete for materials
+            if (args[0].equals("material")) {
+                List<String> materialCompletions = new ArrayList<>();
+                List<String> materialList = new ArrayList<>();
+                for(Material material : Material.values()) {
+                    materialList.add(material.toString());
+                }
+                StringUtil.copyPartialMatches(args[1], materialList, materialCompletions);
+                return materialCompletions;
+            }
+            return null;
+        }
+
+        // Create new array
+        final List<String> completions = new ArrayList<>();
+        StringUtil.copyPartialMatches(args[0], CommonUtil.convertMapKeysToIterableString(commands), completions);
+        return completions;
+    }
+
     public void registerCommand(String cmd, MDSubCommand subCommand) {
         commands.put(cmd, subCommand);
     }
@@ -66,6 +92,5 @@ public class PointBaseCommand implements CommandExecutor {
     public static Map<String, MDSubCommand> getCommands() {
         return commands;
     }
-
 
 }
