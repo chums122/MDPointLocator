@@ -10,6 +10,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.util.StringUtil;
 import us.magicaldreams.mdpointlocator.command.MDSubCommand;
 import us.magicaldreams.mdpointlocator.util.CommonUtil;
+import us.magicaldreams.mdpointlocator.util.PointConfig;
 
 import java.util.*;
 
@@ -64,16 +65,23 @@ public class PointBaseCommand implements CommandExecutor, TabCompleter {
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
 
+        // Tab complete for saved points
+        if (args.length == 2 && Arrays.asList("info", "plot", "remove").contains(args[0].toLowerCase())) {
+            List<String> completions = new ArrayList<>();
+            StringUtil.copyPartialMatches(args[1], PointConfig.getConfig().getKeys(false), completions);
+            return completions;
+        }
+
         // Check if args is already bussin fr fr ong
         if (args.length > 1) {
             // Tab complete for materials
             if (args[0].equals("material")) {
                 List<String> materialCompletions = new ArrayList<>();
-                List<String> materialList = new ArrayList<>();
-                for(Material material : Material.values()) {
-                    materialList.add(material.toString());
+                List<String> blockList = new ArrayList<>();
+                for (Material material : Material.values()) {
+                    if (material.isBlock()) blockList.add(material.toString());
                 }
-                StringUtil.copyPartialMatches(args[1], materialList, materialCompletions);
+                StringUtil.copyPartialMatches(args[1], blockList, materialCompletions);
                 return materialCompletions;
             }
             return null;
