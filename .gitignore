@@ -1,12 +1,23 @@
-# User-specific stuff
-.idea/
-
-*.iml
+# IntelliJ specific files/directories
+out/
+.idea
 *.ipr
 *.iws
+*.iml
+atlassian-ide-plugin.xml
 
-# IntelliJ
-out/
+# Eclipse specific files/directories
+.classpath
+.project
+.settings
+.metadata
+
+# NetBeans specific files/directories
+.nbattrs
+
+# User-specific stuff
+.idea/
+.settings/
 
 # Compiled class file
 *.class
@@ -95,7 +106,11 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-target/
+# Build output directies
+/target
+*/target
+/build
+*/build
 
 pom.xml.tag
 pom.xml.releaseBackup
