@@ -9,8 +9,8 @@ import us.magicaldreams.mdpointlocator.MDPointLocator;
 import us.magicaldreams.mdpointlocator.command.MDSubCommand;
 import us.magicaldreams.mdpointlocator.util.CommonUtil;
 
-public class PointMaterialSubCommand implements MDSubCommand
-{
+public class PointMaterialSubCommand implements MDSubCommand {
+
     @Override
     public void onCommand(CommandSender sender, Command command, String[] args) {
 

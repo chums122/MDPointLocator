@@ -14,55 +14,43 @@ public class PointData {
     private Location pos1;
     private Location pos2;
 
-    public void SetBlock(Material block)
-    {
-        if(block != null)
-        {
+    public void SetBlock(Material block) {
+        if (block != null) {
             this.BlockType = block;
         }
     }
 
-    public void SetY(int y)
-    {
-        if(y != 0){
+    public void SetY(int y) {
+        if (y != 0) {
             this.Y = y;
         }
     }
 
-    public void SavePosition(Location location)
-    {
-        if(this.pos1 == null && this.pos2 == null)
-        {
+    public void SavePosition(Location location) {
+        if (this.pos1 == null && this.pos2 == null) {
             this.pos1 = location;
         }
-        else if (this.pos1 != null && this.pos2 == null)
-        {
+        else if (this.pos1 != null && this.pos2 == null) {
             this.pos2 = location;
-        }
-        else
-        {
+        } else {
             this.pos1 = this.pos2;
             this.pos2 = location;
         }
     }
 
-    public Material GetBlockType()
-    {
+    public Material GetBlockType() {
         return this.BlockType;
     }
 
-    public int GetY()
-    {
+    public int GetY() {
         return this.Y;
     }
 
-    public Location GetPos1()
-    {
+    public Location GetPos1() {
         return this.pos1;
     }
 
-    public Location GetPos2()
-    {
+    public Location GetPos2() {
         return this.pos2;
     }
 }

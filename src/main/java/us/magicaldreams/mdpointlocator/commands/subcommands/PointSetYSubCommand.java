@@ -10,8 +10,8 @@ import us.magicaldreams.mdpointlocator.command.MDSubCommand;
 import us.magicaldreams.mdpointlocator.util.CommonUtil;
 import us.magicaldreams.mdpointlocator.util.PlayerData;
 
-public class PointSetYSubCommand implements MDSubCommand
-{
+public class PointSetYSubCommand implements MDSubCommand {
+
     @Override
     public void onCommand(CommandSender sender, Command command, String[] args) {
 

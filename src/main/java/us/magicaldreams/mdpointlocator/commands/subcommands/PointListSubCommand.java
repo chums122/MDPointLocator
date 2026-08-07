@@ -13,6 +13,7 @@ import us.magicaldreams.mdpointlocator.util.CommonUtil;
  **/
 
 public class PointListSubCommand implements MDSubCommand {
+
     @Override
     public void onCommand(CommandSender sender, Command command, String[] args) {
         if (PointConfig.getConfig().getKeys(false).isEmpty()) {

@@ -13,6 +13,7 @@ import us.magicaldreams.mdpointlocator.util.CommonUtil;
  **/
 
 public class PointRemoveSubCommand implements MDSubCommand {
+
     @Override
     public void onCommand(CommandSender sender, Command command, String[] args) {
 
